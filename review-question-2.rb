@@ -1,28 +1,51 @@
 # Finish the implementation of the Car class so it can behave as shown below
 
 class Car
+	attr_accessor :make, :model
 
+	CARS = []
 
+	def initialize(make, model)
+		@make = make
+		@model = model
+		CARS << self
+	end
+
+	def self.all
+		CARS
+	end
+
+	def drive
+		"VROOOOOOOOOOOOM!"
+	end
+
+	def make
+		self.specs[:make]
+	end
+
+	def model
+		self.specs[:model]
+	end
 
 end
 
-car = Car.new("volvo", "lightening")
-car.make
-#=> "volvo"
-car.model
-#=> "ligthening"
+# car = Car.new("volvo", "lightening")
+# puts car.make
+# #=> "volvo"
+# puts car.model
+# #=> "ligthening"
 
-car.drive
-# => "VROOOOOOOOOOOOM!"
+# puts car.drive
+# # => "VROOOOOOOOOOOOM!"
 
-Car.all
-#=> [car1, car2, car3]
+# puts Car.all
+# #=> [car1, car2, car3]
 
-BONUS:
+# BONUS:
 
 Car.new(make: "volvo", model: "lightening")
 
-car.make
+puts car.make
 #=> "volvo"
-car.model
+puts car.model
 #=> "ligthening"

@@ -1,5 +1,5 @@
 ## QUESTION 1
-
+require 'pry'
 pokemon = [
   {
     "id": 1,
@@ -60,6 +60,38 @@ pokemon = [
 }
 ]
 
+def get_pokemon_by_name(arr, name)
+  arr.find do |pok|
+    pok[:name] == name
+  end
+end
+
+bulbasaur = get_pokemon_by_name(pokemon, "bulbasaur")
+
+def get_abilities(pokemon)
+  pokemon[:abilities]
+end
+
+bulbasaur_abilities = get_abilities(bulbasaur)
+
+def get_ability_hash(poke_abil)
+  poke_abil.each do |k,v|
+    if k == :ability
+      return v[:url]
+    end
+  end
+end
+
+
+def base_ability_over_40(array)
+  array.each do |hash|
+    hash.select do |k,v|
+      k == :base_experience && v > 40
+    end
+  end[0][:name]
+end
+
+puts base_ability_over_40(pokemon)
 
 # How would you get the url for Bulbasaur's ability?
 # How would you return the first pokemon with base experience over 40?
